@@ -7,8 +7,7 @@ from typing import Dict, Optional
 from langchain_experimental.utilities import PythonREPL
 from langchain_core.tools import tool
 
-import os
-_TEMP_DIRECTORY = TemporaryDirectory(dir=os.getcwd())
+_TEMP_DIRECTORY = TemporaryDirectory()
 WORKING_DIRECTORY = Path(_TEMP_DIRECTORY.name)
 
 @tool
@@ -71,8 +70,6 @@ def edit_document(
 
     return f"Document edited and saved to {file_name}"
 
-# Warning: This executes code locally, which can be unsafe when not sandboxed
-
 repl = PythonREPL()
 
 @tool
@@ -82,6 +79,7 @@ def python_repl_tool(
     """Use this to execute python code. If you want to see the output of a value,
     you should print it out with `print(...)`. This is visible to the user."""
     try:
+        print('python_repl_tool:', code)
         result = repl.run(code)
     except BaseException as e:
         return f"Failed to execute. Error: {repr(e)}"

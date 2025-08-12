@@ -1,10 +1,10 @@
 <script setup>
-import AskQuestion from './components/AskQuestion.vue'
+import StreamingChat from './components/StreamingChat.vue'
 </script>
 
 <template>
   <div id="app">
-    <AskQuestion />
+    <StreamingChat />
   </div>
 </template>
 

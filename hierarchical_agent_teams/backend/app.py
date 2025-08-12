@@ -28,7 +28,6 @@ def query():
     question = data.get('question', '')
     if question == "":
         return jsonify({"answer": "Please enter your question"})
-
     def generate():
         try:
             for s in super_graph.stream(
