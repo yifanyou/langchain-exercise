@@ -79,7 +79,6 @@ def python_repl_tool(
     """Use this to execute python code. If you want to see the output of a value,
     you should print it out with `print(...)`. This is visible to the user."""
     try:
-        print('python_repl_tool:', code)
         result = repl.run(code)
     except BaseException as e:
         return f"Failed to execute. Error: {repr(e)}"
